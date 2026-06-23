@@ -1,0 +1,5 @@
+allowBuilds:
+  msw: true
+minimumReleaseAgeExclude:
+  - '@jasonruesch/react@0.3.0'
+  - '@jasonruesch/tokens@0.1.1'

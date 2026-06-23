@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-brand="default">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow</title>
+    <meta name="description" content="TaskFlow — plan projects, track tasks, ship work." />
+    <!-- Single Page Apps for GitHub Pages (rafgraph/spa-github-pages, MIT).
+         Restores the real path after the 404.html redirect so deep links and
+         client-side routes work on GitHub Pages. Runs before the app loads. -->
+    <script type="text/javascript">
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash,
+          );
+        }
+      })(window.location);
+    </script>
+    <script>
+      // Apply persisted theme/brand before first paint to avoid a flash.
+      try {
+        const raw = localStorage.getItem('taskflow-theme');
+        const el = document.documentElement;
+        if (raw) {
+          const { state } = JSON.parse(raw);
+          const theme =
+            state?.theme === 'system' || !state?.theme
+              ? window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light'
+              : state.theme;
+          el.setAttribute('data-theme', theme);
+          if (state?.brand) el.setAttribute('data-brand', state.brand);
+        }
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
