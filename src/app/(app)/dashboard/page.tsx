@@ -61,7 +61,7 @@ function RecentProjects() {
   const { data: projects } = useProjects({ sort: 'recent' });
   const recent = projects.slice(0, 4);
   return (
-    <Grid cols={2} gap={4} className="sm:grid-cols-2">
+    <Grid cols={1} gap={4} className="sm:grid-cols-2">
       {recent.map((project) => (
         <ProjectCard key={project.id} project={project} />
       ))}

@@ -45,7 +45,7 @@ function ProjectGrid({ q, sort }: { q: string; sort: 'recent' | 'name' }) {
   }
 
   return (
-    <Grid cols={3} gap={4} className="sm:grid-cols-2 lg:grid-cols-3">
+    <Grid cols={1} gap={4} className="sm:grid-cols-2 lg:grid-cols-3">
       {projects.map((project) => (
         <ProjectCard key={project.id} project={project} />
       ))}
