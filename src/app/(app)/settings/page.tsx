@@ -13,6 +13,7 @@ import { type FormEvent, useState } from 'react';
 import { AppearanceControls } from '~/components/appearance';
 import { PageHeader } from '~/components/page-header';
 import { UserAvatar } from '~/components/task-meta';
+import { useDocumentTitle } from '~/lib/a11y';
 import { useCurrentUser } from '~/lib/use-auth';
 import { useSessionStore } from '~/stores/session.store';
 
@@ -22,6 +23,7 @@ export default function SettingsPage() {
   const [name, setName] = useState(user?.name ?? '');
   const [jobTitle, setJobTitle] = useState(user?.jobTitle ?? '');
   const [saved, setSaved] = useState(false);
+  useDocumentTitle('Settings');
 
   if (!user) return null;
 

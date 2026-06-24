@@ -1,9 +1,11 @@
 import { Button, Heading, Stack, Text } from '@jasonruesch/react';
 import { useNavigate } from 'react-router';
+import { useDocumentTitle } from '~/lib/a11y';
 
 /** Rendered when a project id doesn't exist (notFound() in useProject). */
 export default function ProjectNotFound() {
   const navigate = useNavigate();
+  useDocumentTitle('Project not found');
   return (
     <Stack gap={3} align="center" className="py-16 text-center">
       <Heading level={3}>Project not found</Heading>

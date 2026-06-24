@@ -18,6 +18,7 @@ import { type FormEvent, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router';
 import { z } from 'zod';
 import type { RouteProps } from 'virtual:react-router-next/(auth)/login';
+import { useDocumentTitle } from '~/lib/a11y';
 import { api, ApiError } from '~/lib/api-client';
 import { useCurrentUser } from '~/lib/use-auth';
 import { useSessionStore } from '~/stores/session.store';
@@ -34,6 +35,7 @@ export default function LoginPage({ searchParams }: RouteProps) {
   const navigate = useNavigate();
   const setSession = useSessionStore((s) => s.setSession);
   const redirectTo = searchParams.redirect ?? '/dashboard';
+  useDocumentTitle('Sign in');
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

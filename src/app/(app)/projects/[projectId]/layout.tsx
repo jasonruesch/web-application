@@ -7,6 +7,7 @@ import {
 } from 'virtual:react-router-next/(app)/projects/[projectId]';
 import { generate as generateSettings } from 'virtual:react-router-next/(app)/projects/[projectId]/settings';
 import { AvatarStack } from '~/components/task-meta';
+import { useDocumentTitle } from '~/lib/a11y';
 import { useProject } from '../_lib/use-projects';
 
 function ProjectTab({ to, end, children }: { to: string; end?: boolean; children: ReactNode }) {
@@ -35,6 +36,7 @@ function ProjectTab({ to, end, children }: { to: string; end?: boolean; children
 export default function ProjectLayout({ modal }: { modal: ReactNode }) {
   const { projectId } = useRouteParams();
   const { data: project } = useProject(projectId);
+  useDocumentTitle(project.name);
 
   return (
     <div>

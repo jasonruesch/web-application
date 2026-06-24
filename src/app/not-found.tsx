@@ -1,9 +1,11 @@
 import { Button, Heading, Stack, Text } from '@jasonruesch/react';
 import { useNavigate } from 'react-router';
+import { useDocumentTitle } from '~/lib/a11y';
 
 /** Root 404 boundary for unmatched URLs. */
 export default function RootNotFound() {
   const navigate = useNavigate();
+  useDocumentTitle('Page not found');
   return (
     <div className="flex min-h-dvh items-center justify-center p-6 text-center">
       <Stack gap={3} align="center">

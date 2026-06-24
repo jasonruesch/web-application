@@ -97,6 +97,9 @@ export function Board({
   const { data } = useProjectTasks(projectId);
   const [moveTask] = useMoveTask();
   const [draggedId, setDraggedId] = useState<string | null>(null);
+  // Politely announce drag-and-drop moves, which change content without moving
+  // focus and so are otherwise silent to screen readers (WCAG 4.1.3).
+  const [moveAnnouncement, setMoveAnnouncement] = useState('');
   const { filters, setQuery, setAssignee, setPriority } = useBoardUiStore();
 
   const filtered = useMemo(() => {
@@ -127,6 +130,7 @@ export function Board({
       : undefined;
     setDraggedId(null);
     if (!task || task.status === status) return;
+    setMoveAnnouncement(`Moved “${task.title}” to ${STATUS_LABELS[status]}`);
     void moveTask({
       variables: { id: task.id, status, order },
       optimisticResponse: {
@@ -137,6 +141,9 @@ export function Board({
 
   return (
     <div>
+      <div aria-live="polite" className="sr-only">
+        {moveAnnouncement}
+      </div>
       <div className="mb-4 flex flex-wrap items-center gap-3">
         <div className="relative min-w-48 flex-1">
           <Search

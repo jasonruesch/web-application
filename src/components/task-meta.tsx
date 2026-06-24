@@ -54,6 +54,9 @@ export function DueDate({ date }: { date: string | null }) {
       title={overdue ? "Overdue" : "Due date"}
     >
       <CalendarClock aria-hidden size={13} />
+      {/* Don't rely on color alone to flag overdue (WCAG 1.4.1): expose the
+          status as text for screen readers. */}
+      {overdue && <span className="sr-only">Overdue: </span>}
       {formatShortDate(date)}
     </span>
   );

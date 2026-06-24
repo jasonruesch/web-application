@@ -12,10 +12,11 @@ import {
   Menu,
   Settings as SettingsIcon,
 } from 'lucide-react';
-import { type ReactNode, useState } from 'react';
+import { type ReactNode, useRef, useState } from 'react';
 import { NavItem } from '~/components/app-link';
 import { ThemeToggleButton } from '~/components/appearance';
 import { UserMenu } from '~/components/user-menu';
+import { useFocusMainOnNavigation } from '~/lib/a11y';
 
 const NAV = [
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
@@ -78,8 +79,22 @@ function MobileNav() {
 }
 
 export function AppShell({ children }: { children: ReactNode }) {
+  const mainRef = useRef<HTMLElement>(null);
+  // Return focus to the main region after a navigation that unmounts the
+  // activating control, so keyboard focus is never stranded on <body>.
+  useFocusMainOnNavigation(mainRef);
+
   return (
     <div className="flex h-dvh overflow-hidden">
+      {/* Skip link (WCAG 2.4.1): the first focusable element; lets keyboard
+          and screen-reader users jump past the nav straight to the page. */}
+      <a
+        href="#main-content"
+        className="sr-only z-50 rounded-md bg-accent px-4 py-2 text-on-accent outline-2 outline-offset-2 outline-focus focus:not-sr-only focus:absolute focus:left-4 focus:top-3"
+      >
+        Skip to main content
+      </a>
+
       {/* Sidebar (desktop) — fixed; does not scroll with the main content */}
       <aside className="hidden w-64 shrink-0 flex-col gap-6 overflow-y-auto border-r border-line bg-surface px-4 py-5 md:flex">
         <BrandMark />
@@ -101,7 +116,12 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
         </header>
 
-        <main className="min-w-0 flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+        <main
+          id="main-content"
+          ref={mainRef}
+          tabIndex={-1}
+          className="min-w-0 flex-1 overflow-y-auto p-4 outline-none sm:p-6 lg:p-8"
+        >
           {children}
         </main>
       </div>

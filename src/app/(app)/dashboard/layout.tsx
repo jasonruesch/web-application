@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Outlet } from 'react-router';
 import { PageHeader } from '~/components/page-header';
+import { useDocumentTitle } from '~/lib/a11y';
 import { useCurrentUser } from '~/lib/use-auth';
 
 /**
@@ -10,6 +11,7 @@ import { useCurrentUser } from '~/lib/use-auth';
  */
 export default function DashboardLayout({ analytics }: { analytics: ReactNode }) {
   const user = useCurrentUser();
+  useDocumentTitle('Dashboard');
   return (
     <div>
       <PageHeader

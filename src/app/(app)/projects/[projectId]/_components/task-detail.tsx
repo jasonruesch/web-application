@@ -27,6 +27,7 @@ import {
   type User,
 } from '~/types';
 import { DueDate } from '~/components/task-meta';
+import { useDocumentTitle } from '~/lib/a11y';
 import { formatRelative, initials } from '~/lib/format';
 import {
   useAddComment,
@@ -50,6 +51,7 @@ export function TaskDetail({
 }) {
   const { data } = useTask(taskId);
   const task = data.task;
+  useDocumentTitle(task.title);
   const [updateTask, { loading: updating }] = useUpdateTask();
   const [deleteTask, { loading: deleting }] = useDeleteTask(projectId);
   const [addComment, { loading: commenting }] = useAddComment();

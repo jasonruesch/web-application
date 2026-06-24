@@ -13,6 +13,7 @@ import {
 import { type FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router';
 import type { RouteProps } from 'virtual:react-router-next/(app)/projects/[projectId]/settings';
+import { useDocumentTitle } from '~/lib/a11y';
 import {
   useDeleteProject,
   useProject,
@@ -25,6 +26,7 @@ export default function ProjectSettingsPage({ params }: RouteProps) {
   const updateProject = useUpdateProject(projectId);
   const deleteProject = useDeleteProject();
   const navigate = useNavigate();
+  useDocumentTitle(`${project.name} settings`);
 
   const [name, setName] = useState(project.name);
   const [description, setDescription] = useState(project.description);

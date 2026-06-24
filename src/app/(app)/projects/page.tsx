@@ -17,6 +17,7 @@ import {
 } from 'virtual:react-router-next/(app)/projects';
 import { EmptyState } from '~/components/feedback';
 import { PageHeader } from '~/components/page-header';
+import { useDocumentTitle } from '~/lib/a11y';
 import { CreateProjectDialog } from './_components/create-project-dialog';
 import { ProjectCard } from './_components/project-card';
 import { useProjects } from './_lib/use-projects';
@@ -57,6 +58,7 @@ export default function ProjectsPage({ searchParams }: RouteProps) {
   const { q, sort } = searchParams;
   const [, setSearch] = useSearchParams();
   const [query, setQuery] = useState(q);
+  useDocumentTitle('Projects');
 
   // Debounce search input into the URL so the query string stays shareable
   // without re-fetching on every keystroke.
