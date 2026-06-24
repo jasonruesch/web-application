@@ -12,8 +12,8 @@ importers:
         specifier: ^4.2.3
         version: 4.2.3(graphql@17.0.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(rxjs@7.8.2)
       '@evolonix/react-router-next':
-        specifier: ^3.6.0
-        version: 3.6.0(react-dom@19.2.7(react@19.2.7))(react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(vite@8.0.16(@types/node@26.0.0)(jiti@2.7.0))
+        specifier: ^3.6.1
+        version: 3.6.1(react-dom@19.2.7(react@19.2.7))(react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(vite@8.0.16(@types/node@26.0.0)(jiti@2.7.0))
       '@jasonruesch/react':
         specifier: ^0.3.0
         version: 0.3.0(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
@@ -326,8 +326,8 @@ packages:
     resolution: {integrity: sha512-+CNAzxglkrpNf/kKywqQfk74QjtceuOE7Qm+AF8miRvPF/wmmK5+OJOgVh3AVTT3RP2mH3+FOaxlE5v72owk0A==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@evolonix/react-router-next@3.6.0':
-    resolution: {integrity: sha512-Vb5fhlaKbbHKs8p3J9ParQlXSP3pQGOg86mGzRVVgg/RXxDJnaofAxbG80k3i82hNvhAAiYfDPMxT/xfs2a1dw==}
+  '@evolonix/react-router-next@3.6.1':
+    resolution: {integrity: sha512-ISqTmXB/VOIZXjklAC1w9Nx/R2r39MESMI0h8RvVV3wSqyHIxV1F9mCATW5+0Vtkg+B/rqo8K0OTGnxAnQAe0A==}
     engines: {node: '>=24'}
     hasBin: true
     peerDependencies:
@@ -2719,7 +2719,7 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@evolonix/react-router-next@3.6.0(react-dom@19.2.7(react@19.2.7))(react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(vite@8.0.16(@types/node@26.0.0)(jiti@2.7.0))':
+  '@evolonix/react-router-next@3.6.1(react-dom@19.2.7(react@19.2.7))(react-router@8.0.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(react@19.2.7)(vite@8.0.16(@types/node@26.0.0)(jiti@2.7.0))':
     dependencies:
       '@standard-schema/spec': 1.1.0
       react: 19.2.7
