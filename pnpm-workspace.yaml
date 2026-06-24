@@ -4,3 +4,4 @@ minimumReleaseAgeExclude:
   - '@jasonruesch/react@0.3.0'
   - '@jasonruesch/tokens@0.1.1'
   - '@evolonix/react-router-next@3.6.1'
+  - '@jasonruesch/react@0.3.1'
