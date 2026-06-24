@@ -30,7 +30,7 @@ export function TaskCard({
             <PriorityBadge priority={task.priority} />
             <DueDate date={task.dueDate} />
           </div>
-          {task.assignee && <UserAvatar user={task.assignee} size="sm" />}
+          <UserAvatar user={task.assignee} size="sm" />
         </div>
       </Card>
     </RouterLink>
