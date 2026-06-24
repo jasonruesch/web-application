@@ -16,3 +16,6 @@ node_modules/.react-router-next
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# Claude Code (local, machine-specific)
+.claude/settings.local.json
